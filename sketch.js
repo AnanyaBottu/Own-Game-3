@@ -54,18 +54,16 @@ function draw() {
   if(frameCount%100===0){
    
     if(num>4){
-      num=0;
+      num=1;
     }
-    signal(num++);
-   
+    signal(num);
+   num++;
   }
   for(var i=0;i<ambGroup.length;i++){
     if(ambGroup.get(i).isTouching(invLine)){
-      num=2;
+      num=4;
     } 
-    else{
-      num=1;
-    }
+    
    }
  rect1.display();
  rect2.display();
@@ -89,9 +87,10 @@ function signal(){
         rect2.color="red";
         rect3.color="red";
         rect4.color="red";
+        bottomGroup.setVelocityYEach(-10);
       },6000)
       
-      bottomGroup.setVelocityYEach(-10);
+      
      
       
       break;
@@ -102,8 +101,9 @@ function signal(){
         rect2.color="green";
         rect3.color="red";
         rect4.color="red";
+        leftGroup.setVelocityXEach(10)
       },6000);
-      leftGroup.setVelocityXEach(10)
+      
       break;
 
     case 3:
@@ -112,9 +112,10 @@ function signal(){
         rect2.color="red";
         rect3.color="green";
         rect4.color="red";
+        topGroup.setVelocityYEach(10)
       },6000);
      
-      topGroup.setVelocityYEach(10)
+      
      
       break;
       
@@ -124,8 +125,9 @@ function signal(){
         rect2.color="red";
         rect3.color="red";
         rect4.color="green";
+        rightGroup.setVelocityXEach(-10)
       },6000);
-      rightGroup.setVelocityXEach(-10)
+      
       
       break;
 
