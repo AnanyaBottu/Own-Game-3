@@ -37,6 +37,8 @@ function setup() {
   rect3=new TrafficLight(850,610,40,180);
   rect4=new TrafficLight(365,470,40,270); 
   invLine=createSprite(500,displayHeight/2-70,700,300);
+
+  invLine.visible=false;
   //invLine1=createSprite(900,displayHeight/2-70,20,300);
   leftGroup=new Group();
   rightGroup=new Group();
@@ -49,7 +51,7 @@ function setup() {
 function draw() {
   background(bgImage);
 
-  if(frameCount%90===0){
+  if(frameCount%100===0){
    
     if(num>4){
       num=0;
@@ -59,10 +61,10 @@ function draw() {
   }
   for(var i=0;i<ambGroup.length;i++){
     if(ambGroup.get(i).isTouching(invLine)){
-      num=1;
+      num=2;
     } 
     else{
-      num=0;
+      num=1;
     }
    }
  rect1.display();
@@ -131,7 +133,7 @@ function signal(){
  
 }
 function spawnAmbulance(){
-  if(frameCount%113===0){
+  if(frameCount%499===0){
     amb=createSprite(0,275,20,20);
     amb.addImage(ambImage);
     amb.velocityX=10;
