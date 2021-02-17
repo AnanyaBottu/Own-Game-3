@@ -5,19 +5,18 @@ constructor(x,y,width,height){
     this.width=width;
     this.height=height;
     this.siren=loadSound("Siren.m4a");
-    this.image = loadImage("amb.png");
+    this.image = loadImage("images/amb.png");
 }
 
 
 display(){
     push();
-    rect(this.x,this.y,this.width,this.height);
-    pop();
-    image(this.image,this.x-50,this.y-50,150,175);
-    if(keyIsDown(RIGHT_ARROW)){
-        this.x=this.x+10;
-    }
+    translate(this.x,this.y)
+    //rect(this.x,this.y,this.width,this.height);
+    
+    image(this.image,-50,-50,150,175);
    
+    pop();
 
 
 }
